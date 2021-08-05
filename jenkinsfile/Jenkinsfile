@@ -1,15 +1,19 @@
 def job_test = "ISQA/integration_test"
 def testResult
 pipeline {
-    agent any
+    agent{
+        node {
+            label "docker-chrome"
+        }
+    }
 
     stages{
 
-        /*stage('Sonar Check'){
+        stage('Sonar Check'){
             steps{
                 sh './gradlew clean sonarqube'
             }
-        }*/
+        }
 
         stage('Unit test'){
             steps{
