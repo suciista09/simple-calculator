@@ -1,0 +1,66 @@
+def job_test = "ISQA/integration_test"
+def testResult
+pipeline {
+    agent {
+        node {
+            label any
+        }
+    }
+
+    stages{
+
+        stage('Sonar Check'){
+            steps{
+                sh './gradlew clean sonarqube'
+            }
+        }
+
+        stage('Unit test'){
+            steps{
+                sh './gradlew clean test'
+            }
+        }
+
+        stage('Build'){
+            steps{
+                sh './gradlew clean build'
+            }
+        }
+
+        stage('Deploy'){
+            steps{
+                sh 'echo deploying....'
+                sh 'echo deployment done'
+            }
+        }
+
+        stage('Integration Test'){
+            steps{
+                script{
+                    testResult = build job: job_test, parameters: [string(name: 'BRANCH_TEST', value: 'master')]
+
+                    println "Build testing ID : " + testResult.getNumber()
+                    println "Build Testing Status: " + testResult.currentResult()
+
+                }
+            }
+        }
+
+        post{
+            always{
+                sh 'echo this section is always executed'
+            }
+            success{
+                sh 'echo this section is only executed when pipeline is success'
+            }
+
+            failure{
+                sh 'echo this section is only executed when pipeline is failed'
+            }
+
+
+        }
+
+
+    }
+}

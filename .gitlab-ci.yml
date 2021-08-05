@@ -1,0 +1,29 @@
+image: "openjdk:8-jdk-alpine"
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - ./gradlew build
+
+test1:
+  stage: test
+  script:
+    - ./gradlew test
+
+test2:
+  stage: test
+  script:
+    - ./gradlew test
+
+merge_request_test:
+  stage: test
+  script: ./gradlew clean check -x test
+  only:
+    - merge_requests
+
+
+
