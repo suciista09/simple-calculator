@@ -1,3 +1,5 @@
+package org.koligrum;
+
 public class Operator {
 
     public int add(int number1, int number2){

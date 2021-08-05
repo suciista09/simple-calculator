@@ -31,6 +31,13 @@ sonarqube {
         property "sonar.host.url", "http://sonar.atlasid.tech/"
         property "sonar.login", System.getenv("ATLAS_SONAR_ENV")
         property "sonar.projectKey", "simple-calculator"
-        //property "sonar.projectName", "automation-web"
+        property "sonar.sources", "src"
+        //property "sonar.language", "java"
+        //property "sonar.binaries", "build/classes"
+        //property "sonar.tests", "junit"
+        property "sonar.dynamicAnalysis", "reuseReports"
+        //property "sonar.junit.reportPath", "build/test-results"
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.jacoco.reportPath", "build/jacoco/test.exec"
     }
 }
