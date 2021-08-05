@@ -55,7 +55,7 @@ pipeline {
                     testResult = build job: job_test, parameters: [string(name: 'BRANCH_TEST', value: 'master')]
 
                     println "Build testing ID : " + testResult.getNumber()
-                    println "Build Testing Status: " + testResult.currentResult()
+                    println "Build Testing Status: " + testResult.getResult()
 
                 }
             }
