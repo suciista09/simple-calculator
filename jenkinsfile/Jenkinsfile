@@ -45,22 +45,19 @@ pipeline {
                 }
             }
         }
+    }
 
-        post{
-            always{
-                sh 'echo this section is always executed'
-            }
-            success{
-                sh 'echo this section is only executed when pipeline is success'
-            }
-
-            failure{
-                sh 'echo this section is only executed when pipeline is failed'
-            }
-
-
+    post{
+        always{
+            sh 'echo this section is always executed'
         }
 
+        success{
+            sh 'echo this section is only executed when pipeline is success'
+        }
 
+        failure{
+            sh 'echo this section is only executed when pipeline is failed'
+        }
     }
 }
