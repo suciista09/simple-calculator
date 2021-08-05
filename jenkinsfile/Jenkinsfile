@@ -1,11 +1,7 @@
 def job_test = "ISQA/integration_test"
 def testResult
 pipeline {
-    agent {
-        node {
-            label any
-        }
-    }
+    agent any
 
     stages{
 
