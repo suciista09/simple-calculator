@@ -13,12 +13,6 @@ pipeline {
 
     stages{
 
-        stage('Sonar Check'){
-            steps{
-                sh './gradlew clean sonarqube'
-            }
-        }
-
         stage('Unit test'){
             steps{
                 sh './gradlew clean test'
@@ -33,6 +27,12 @@ pipeline {
                         exclusionPattern: '**/*Test'
                     )
                 }
+            }
+        }
+
+        stage('Sonar Check'){
+            steps{
+                sh './gradlew clean sonarqube'
             }
         }
 
