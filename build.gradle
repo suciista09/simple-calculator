@@ -31,7 +31,7 @@ sonarqube {
         property "sonar.host.url", "http://sonar.atlasid.tech/"
         property "sonar.login", System.getenv("ATLAS_SONAR_ENV")
         property "sonar.projectKey", "simple-calculator"
-        property "sonar.sources", "src"
+        //property "sonar.sources", "src"
         //property "sonar.language", "java"
         //property "sonar.binaries", "build/classes"
         //property "sonar.tests", "junit"
