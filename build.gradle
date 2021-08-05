@@ -30,7 +30,7 @@ sonarqube {
         //property "sonar.sourceEncoding", "UTF-8"
         property "sonar.host.url", "http://sonar.atlasid.tech/"
         property "sonar.login", System.getenv("ATLAS_SONAR_ENV")
-        property "sonar.projectKey", "automation-web"
+        property "sonar.projectKey", "simple-calculator"
         //property "sonar.projectName", "automation-web"
     }
 }
