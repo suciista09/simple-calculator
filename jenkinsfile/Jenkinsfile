@@ -5,15 +5,26 @@ pipeline {
 
     stages{
 
-        stage('Sonar Check'){
+        /*stage('Sonar Check'){
             steps{
                 sh './gradlew clean sonarqube'
             }
-        }
+        }*/
 
         stage('Unit test'){
             steps{
                 sh './gradlew clean test'
+            }
+
+            post{
+                always{
+                    jacoco{
+                        execPattern: 'build/jacoco/test.exec',
+                        classPattern: 'build/classes',
+                        sourcePattern: 'src/java,src/*/java,src/*/src',
+                        exclusionPattern: '**/*Test'
+                    }
+                }
             }
         }
 
