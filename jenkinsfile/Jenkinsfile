@@ -18,12 +18,12 @@ pipeline {
 
             post{
                 always{
-                    jacoco{
-                        execPattern: 'build/jacoco/test.exec',
+                    jacoco(
+                        execPattern: 'build/jacoco/*.exec',
                         classPattern: 'build/classes',
                         sourcePattern: 'src/java,src/*/java,src/*/src',
                         exclusionPattern: '**/*Test'
-                    }
+                    )
                 }
             }
         }
