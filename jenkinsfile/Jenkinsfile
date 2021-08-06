@@ -32,7 +32,7 @@ pipeline {
 
         stage('Sonar Check'){
             steps{
-                sh './gradlew clean sonarqube'
+                sh './gradlew sonarqube'
             }
         }
 
