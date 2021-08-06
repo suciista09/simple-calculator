@@ -30,9 +30,12 @@ pipeline {
             }
         }
 
-        stage('Sonar Check'){
+        stage('Sonar Quality Gate'){
             steps{
-                sh './gradlew sonarqube'
+                withSonarQubeEnv('SonarQube') {
+                    sh "./gradlew sonarqube"
+                }
+                waitForQualityGate abortPipeline: true
             }
         }
 

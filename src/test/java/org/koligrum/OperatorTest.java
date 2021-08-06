@@ -2,7 +2,6 @@ package org.koligrum;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.koligrum.Operator;
 
 public class OperatorTest {
 
