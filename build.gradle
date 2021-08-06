@@ -22,7 +22,12 @@ test {
 }
 
 jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
+    dependsOn test // tests are required to run before generating the report]
+    reports {
+            xml.enabled true
+            html.destination file("${buildDir}/reports/coverage")
+            xml.destination file("${buildDir}/reports/jacoco.xml")
+        }
 }
 
 sonarqube {
@@ -38,6 +43,6 @@ sonarqube {
         property "sonar.dynamicAnalysis", "reuseReports"
         //property "sonar.junit.reportPath", "build/test-results"
         property "sonar.java.coveragePlugin", "jacoco"
-        property "sonar.jacoco.reportPath", "build/jacoco/test.exec"
+        //property "sonar.jacoco.reportPath", "build/jacoco/test.exec"
     }
 }
