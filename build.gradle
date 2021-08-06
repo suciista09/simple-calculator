@@ -22,11 +22,7 @@ test {
 }
 
 jacocoTestReport {
-<<<<<<< HEAD
     dependsOn test // tests are required to run before generating the report]
-=======
-    dependsOn test // tests are required to run before generating the report
->>>>>>> 436448c2a0aa2739a4f07320a3220414703a546b
     reports {
             xml.enabled true
             html.destination file("${buildDir}/reports/coverage")
