@@ -38,9 +38,9 @@ sonarqube {
         //property "sonar.language", "java"
         //property "sonar.binaries", "build/classes"
         //property "sonar.tests", "junit"
-        property "sonar.dynamicAnalysis", "reuseReports"
+        //property "sonar.dynamicAnalysis", "reuseReports"
         //property "sonar.junit.reportPath", "build/test-results"
-        property "sonar.java.coveragePlugin", "jacoco"
+        //property "sonar.java.coveragePlugin", "jacoco"
         //property "sonar.jacoco.reportPath", "build/jacoco/test.exec"
     }
 }
